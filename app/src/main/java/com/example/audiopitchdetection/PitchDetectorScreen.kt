@@ -51,37 +51,43 @@ fun PitchDetectorScreen(
                 onBackPress()
             })
         }
-        Text("Pitch: ${viewModel.pitch} Hz", style = MaterialTheme.typography.headlineMedium)
-        Spacer(modifier = Modifier.height(16.dp))
         Column(
-            modifier = Modifier
-                .height(250.dp)
-                .width(120.dp)
-                .background(Color.LightGray, RoundedCornerShape(12.dp)),
-            verticalArrangement = Arrangement.Bottom,
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Box(
+            Text("Pitch: ${viewModel.pitch} Hz", style = MaterialTheme.typography.headlineMedium)
+            Spacer(modifier = Modifier.height(16.dp))
+            Column(
                 modifier = Modifier
-                    .background(Color.Blue, RoundedCornerShape(12.dp))
-                    .height(
-                        viewModel.pitch.coerceIn(0f, 1000f).toInt().dp
-                    )
-                    .fillMaxWidth()
-            )
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = {
-            isListening = !isListening
-            if (isListening) {
-                viewModel.startListening(context = context)
-            } else {
-                viewModel.stopListening()
+                    .height(250.dp)
+                    .width(120.dp)
+                    .background(Color.LightGray, RoundedCornerShape(12.dp)),
+                verticalArrangement = Arrangement.Bottom,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Box(
+                    modifier = Modifier
+                        .background(Color.Blue, RoundedCornerShape(12.dp))
+                        .height(
+                            viewModel.pitch.coerceIn(0f, 1000f).toInt().dp
+                        )
+                        .fillMaxWidth()
+                )
             }
-        }) {
-            Text(if (isListening) "Stop Listening" else "Start Listening")
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(onClick = {
+                isListening = !isListening
+                if (isListening) {
+                    viewModel.startListening(context = context)
+                } else {
+                    viewModel.stopListening()
+                }
+            }) {
+                Text(if (isListening) "Stop Listening" else "Start Listening")
+            }
         }
     }
 }
