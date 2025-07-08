@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
             AudioPitchDetectionTheme {
                 val context = LocalContext.current.applicationContext
                 var screenSelected by remember { mutableStateOf(0) }
-                Column(modifier = Modifier.fillMaxSize()) {
+                Column(modifier = Modifier.fillMaxSize().padding(24.dp)) {
                     if (ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO)
                         != PackageManager.PERMISSION_GRANTED
                     ) {
@@ -62,10 +62,12 @@ class MainActivity : ComponentActivity() {
                         }
                     } else {
                         Column(
+                            modifier = Modifier.fillMaxSize(),
                             verticalArrangement = Arrangement.spacedBy(
                                 24.dp,
                                 Alignment.CenterVertically
-                            )
+                            ),
+                            horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Button(
                                 {
