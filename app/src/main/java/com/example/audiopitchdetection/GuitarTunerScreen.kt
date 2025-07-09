@@ -78,47 +78,47 @@ fun GuitarTunerScreen(
         }
 
         Text(
-            "Pitch: ${viewModel.pitch} Hz",
+            "Pitch: ${"%.2f".format(viewModel.pitch).toFloat()} Hz",
             style = MaterialTheme.typography.headlineMedium,
             color = if (selectedTuning != null) {
                 when(selectedTuning) {
                     1 -> {
-                        if (viewModel.pitch == 329.63f) {
+                        if ("%.2f".format(viewModel.pitch).toFloat() == 990.53f) {
                             Color.Green
                         } else {
                             Color.Red
                         }
                     }
                     2 -> {
-                        if (viewModel.pitch == 246.94f) {
+                        if ("%.2f".format(viewModel.pitch).toFloat() == 732.13f) {
                             Color.Green
                         } else {
                             Color.Red
                         }
                     }
                     3 -> {
-                        if (viewModel.pitch == 196.00f) {
+                        if ("%.2f".format(viewModel.pitch).toFloat() == 129.2f) {
                             Color.Green
                         } else {
                             Color.Red
                         }
                     }
                     4 -> {
-                        if (viewModel.pitch == 146.83f) {
+                        if ("%.2f".format(viewModel.pitch).toFloat() == 581.4f) {
                             Color.Green
                         } else {
                             Color.Red
                         }
                     }
                     5 -> {
-                        if (viewModel.pitch == 110.00f) {
+                        if ("%.2f".format(viewModel.pitch).toFloat() == 129.2f) {
                             Color.Green
                         } else {
                             Color.Red
                         }
                     }
                     6 -> {
-                        if (viewModel.pitch == 82.41f) {
+                        if ("%.2f".format(viewModel.pitch).toFloat() == 667.53f) {
                             Color.Green
                         } else {
                             Color.Red
