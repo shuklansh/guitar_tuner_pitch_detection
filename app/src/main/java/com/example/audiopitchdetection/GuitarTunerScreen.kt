@@ -95,7 +95,7 @@ fun GuitarTunerScreen(
                         }
 
                         3 -> {
-                            if ("%.2f".format(viewModel.pitch).toFloat() == 129.2f) {
+                            if ("%.2f".format(viewModel.pitch).toFloat() == 775.2f) {
                                 Color.Green
                             } else {
                                 Color.Red
@@ -111,7 +111,7 @@ fun GuitarTunerScreen(
                         }
 
                         5 -> {
-                            if ("%.2f".format(viewModel.pitch).toFloat() == 129.2f) {
+                            if ("%.2f".format(viewModel.pitch).toFloat() == 323.0f) {
                                 Color.Green
                             } else {
                                 Color.Red
@@ -153,53 +153,22 @@ fun GuitarTunerScreen(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Button({
-                        selectedTuning = 1
+                        selectedTuning = 4
                         soundPlayer.playSound(
                             context,
-                            R.raw.string1_e4
-                        ) {
-                            selectedTuning = null
-                        }
+                            R.raw.string4_d3
+                        )
                     }) {
-                        Text("E4")
+                        Text("D3")
                     }
-                    Button({
-                        selectedTuning = 2
-                        soundPlayer.playSound(
-                            context,
-                            R.raw.string2_b3
-                        ) {
-                            selectedTuning = null
-                        }
-                    }) {
-                        Text("B3")
-                    }
-                }
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
                     Button({
                         selectedTuning = 3
                         soundPlayer.playSound(
                             context,
                             R.raw.string3_g3
-                        ) {
-                            selectedTuning = null
-                        }
+                        )
                     }) {
                         Text("G3")
-                    }
-                    Button({
-                        selectedTuning = 4
-                        soundPlayer.playSound(
-                            context,
-                            R.raw.string4_d3
-                        ) {
-                            selectedTuning = null
-                        }
-                    }) {
-                        Text("D3")
                     }
                 }
                 Row(
@@ -211,22 +180,41 @@ fun GuitarTunerScreen(
                         soundPlayer.playSound(
                             context,
                             R.raw.string5_a2
-                        ) {
-                            selectedTuning = null
-                        }
+                        )
                     }) {
                         Text("A2")
                     }
+                    Button({
+                        selectedTuning = 2
+                        soundPlayer.playSound(
+                            context,
+                            R.raw.string2_b3
+                        )
+                    }) {
+                        Text("B3")
+                    }
+                }
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
                     Button({
                         selectedTuning = 6
                         soundPlayer.playSound(
                             context,
                             R.raw.string6_e2
-                        ) {
-                            selectedTuning = null
-                        }
+                        )
                     }) {
                         Text("E2")
+                    }
+                    Button({
+                        selectedTuning = 1
+                        soundPlayer.playSound(
+                            context,
+                            R.raw.string1_e4
+                        )
+                    }) {
+                        Text("E4")
                     }
                 }
             }
