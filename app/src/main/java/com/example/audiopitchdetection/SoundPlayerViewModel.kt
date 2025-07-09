@@ -13,7 +13,7 @@ class SoundPlayerViewModel() : ViewModel() {
     private var currentPlayerFileId by mutableStateOf<Int?>(null)
     var isEnable by mutableStateOf(false)
 
-    fun playSound(context: Context, audioFileId: Int) {
+    fun playSound(context: Context, audioFileId: Int, onComplete: (() -> Unit)? = null ) {
         currentPlayerFileId = audioFileId
         if (currentPlayerFileId != null) {
             val player = MediaPlayer.create(context, currentPlayerFileId!!)
@@ -24,6 +24,7 @@ class SoundPlayerViewModel() : ViewModel() {
                 start()
                 setOnCompletionListener {
                     stopAudio()
+                    onComplete?.invoke()
                 }
             }
         }

@@ -64,16 +64,11 @@ fun GuitarTunerScreen(
         val soundPlayer = SoundPlayerViewModel()
         var selectedTuning by remember { mutableStateOf<Int?>(null) }
 
-        var isListening by remember { mutableStateOf(false) }
-
         LaunchedEffect(selectedTuning) {
             if (selectedTuning != null) {
-                isListening = !isListening
-                if (isListening) {
-                    viewModel.startListening(context = context)
-                } else {
-                    viewModel.stopListening()
-                }
+                viewModel.startListening(context = context)
+            } else {
+                viewModel.stopListening()
             }
         }
 
@@ -154,7 +149,9 @@ fun GuitarTunerScreen(
                         soundPlayer.playSound(
                             context,
                             R.raw.string1_e4
-                        )
+                        ) {
+                            selectedTuning = null
+                        }
                     }) {
                         Text("E4")
                     }
@@ -163,7 +160,9 @@ fun GuitarTunerScreen(
                         soundPlayer.playSound(
                             context,
                             R.raw.string2_b3
-                        )
+                        ) {
+                            selectedTuning = null
+                        }
                     }) {
                         Text("B3")
                     }
@@ -177,7 +176,9 @@ fun GuitarTunerScreen(
                         soundPlayer.playSound(
                             context,
                             R.raw.string3_g3
-                        )
+                        ) {
+                            selectedTuning = null
+                        }
                     }) {
                         Text("G3")
                     }
@@ -186,7 +187,9 @@ fun GuitarTunerScreen(
                         soundPlayer.playSound(
                             context,
                             R.raw.string4_d3
-                        )
+                        ) {
+                            selectedTuning = null
+                        }
                     }) {
                         Text("D3")
                     }
@@ -200,7 +203,9 @@ fun GuitarTunerScreen(
                         soundPlayer.playSound(
                             context,
                             R.raw.string5_a2
-                        )
+                        ) {
+                            selectedTuning = null
+                        }
                     }) {
                         Text("A2")
                     }
@@ -209,7 +214,9 @@ fun GuitarTunerScreen(
                         soundPlayer.playSound(
                             context,
                             R.raw.string6_e2
-                        )
+                        ) {
+                            selectedTuning = null
+                        }
                     }) {
                         Text("E2")
                     }
